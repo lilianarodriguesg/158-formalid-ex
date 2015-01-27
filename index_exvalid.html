@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>158 -exercicio validacao</title>
+  <link rel="shortcut icon" href="favicon.ico" />  
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <form id="ex1" action="index.html" method="" accept-charset="utf-8">
+  	<label for="localidade">localidade</label>
+  	<input id="localidade" type="text" name="localidade" value="">
+    
+  	<span class="localidade-erro"> a localidade deve ter mais de 4 letras
+  </span>
+
+  	<label for="email">Email</label>
+    <input id="email" type="email" name="email" value=""><br>
+    
+    <label for="email-obrigatorio">Email-obrigatorio</label>
+    <input id="email-obrigatorio" type="email-obrigatorio" name="email" value=""><br>
+    
+ </form><input type="submit">
+<script src="jquery-1.11.1.js"></script>
+
+  <script src="jquery-validation/dist/jquery.validate.js"></script>
+  <script>
+  
+   
+          $("#ex1").validate(
+   {
+    rules: {
+
+      localidade: {
+        required: true,
+        minlength:4,
+      },
+      email:{
+          required: true,
+          email: true,
+          equalTo: "#email",
+        }
+
+            email-obrigatorio:{
+          required: true,
+          email: true,
+          equalTo: "#email-obrigatorio",
+        }
+
+    },
+    messages:{
+      email:{
+        required:" insira um email valido",
+      }
+
+   email-obrigatorio{
+    required:"repetir o email",
+    minlength: jquery.validator("insira pelo menos{0}charcters"),
+        equalTo: "devem ser iguais", 
+   }
+    
+   
+},
+);
+
+
+  </form>	
+</body>
+</html>

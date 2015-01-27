@@ -1,0 +1,9 @@
+body,
+input{
+	font-size: 1em;
+}
+
+.localidade-erro,
+.email-erro{
+	display: none;
+}
