@@ -9,25 +9,22 @@
 <body>
   <form id="ex1" action="index.html" method="" accept-charset="utf-8">
   	<label for="localidade">localidade</label>
-  	<input id="localidade" type="text" name="localidade" value="">
-    
-  	<span class="localidade-erro"> a localidade deve ter mais de 4 letras
-  </span>
+  	<input id="localidade" type="text" name="localidade" value=""><br>
 
-  	<label for="email">Email</label>
-    <input id="email" type="email" name="email" value=""><br>
+  	<label for="email1">Email</label>
+    <input id="email1" type="email" name="email1" value=""><br>
     
-    <label for="email-obrigatorio">Email-obrigatorio</label>
-    <input id="email-obrigatorio" type="email-obrigatorio" name="email" value=""><br>
-    
- </form><input type="submit">
+    <label for="email2">Email-obrigatorio</label>
+    <input id="email2" type="email" name="email2" value=""><br>
+    <input type="submit">
+ </form>
 <script src="jquery-1.11.1.js"></script>
 
   <script src="jquery-validation/dist/jquery.validate.js"></script>
   <script>
   
    
-          $("#ex1").validate(
+  $("#ex1").validate(
    {
     rules: {
 
@@ -35,35 +32,36 @@
         required: true,
         minlength:4,
       },
-      email:{
-          required: true,
-          email: true,
-          equalTo: "#email",
-        }
+      email1:{
+        required: true,
+        email: true,
+      },
 
-            email-obrigatorio:{
-          required: true,
-          email: true,
-          equalTo: "#email-obrigatorio",
-        }
+      email2:{
+        required: true,
+        email: true,
+        equalTo: "#email1",
+      }
 
     },
     messages:{
-      email:{
-        required:" insira um email valido",
+      localidade: {
+        required: 'obrigatorio',
+        minlength: 'tem que ter 4 crateres',
+      },
+
+      email1:{
+        required: 'insira um email valido',
+        minlength:  jquery.validator.format("insira pelo menos{0} carateres"),      
       }
 
-   email-obrigatorio{
-    required:"repetir o email",
-    minlength: jquery.validator("insira pelo menos{0}charcters"),
-        equalTo: "devem ser iguais", 
-   }
-    
-   
-},
-);
+      email2:{ 
+        required: 'repita o seu email',
+        minlength: jquery.validator.format("insira pelo menos{0} carateres")
+        equalTo: 'devem de ser iguais'
+      }
+  });
 
-
-  </form>	
+</script>
 </body>
 </html>
